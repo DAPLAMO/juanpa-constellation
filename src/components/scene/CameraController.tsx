@@ -15,6 +15,17 @@ import {
 // Animatable target for camera lookAt (plain object for GSAP)
 const lookAtTarget = { x: 0, y: 0, z: 0 }
 
+// On portrait / narrow screens the constellation would be too tight.
+// Pull the camera back proportionally to keep JUANPA comfortably visible.
+function getMobileZScale(): number {
+  if (typeof window === 'undefined') return 1
+  const aspect = window.innerWidth / window.innerHeight
+  if (aspect < 0.6)  return 1.55   // phones in portrait
+  if (aspect < 0.85) return 1.25   // large phones / tablet portrait
+  if (aspect < 1.0)  return 1.1
+  return 1
+}
+
 export function CameraController() {
   const { camera } = useThree()
   const lookAtVec = useRef(new THREE.Vector3(0, 0, 0))
@@ -40,16 +51,18 @@ export function CameraController() {
 
     if (phase === 'landing') {
       const [px, py, pz] = CAMERA_LANDING.position
-      camera.position.set(px, py, pz)
+      const zScale = getMobileZScale()
+      camera.position.set(px, py, pz * zScale)
       lookAtTarget.x = 0; lookAtTarget.y = 0; lookAtTarget.z = 0
     }
 
     if (phase === 'entering') {
       // Slow cinematic zoom in from landing position to overview
       const [tx, ty, tz] = CAMERA_OVERVIEW.position
+      const zScale = getMobileZScale()
       gsap.killTweensOf(camera.position)
       gsap.to(camera.position, {
-        x: tx, y: ty, z: tz,
+        x: tx, y: ty, z: tz * zScale,
         duration: 2.8,
         ease: 'power2.inOut',
         onComplete: () => {
@@ -96,6 +109,7 @@ export function CameraController() {
 
     if (phase === 'returning') {
       const [px, py, pz] = CAMERA_OVERVIEW.position
+      const zScale = getMobileZScale()
 
       gsap.killTweensOf(camera.position)
       gsap.killTweensOf(lookAtTarget)
@@ -107,7 +121,7 @@ export function CameraController() {
         }
       })
       tl.to(lookAtTarget,    { x: 0, y: 0, z: 0, duration: 2.4, ease: 'power2.inOut' })
-        .to(camera.position, { x: px, y: py, z: pz, duration: 2.6, ease: 'power2.inOut' }, '<0.2')
+        .to(camera.position, { x: px, y: py, z: pz * zScale, duration: 2.6, ease: 'power2.inOut' }, '<0.2')
 
       // Fallback
       const timerId = setTimeout(() => {

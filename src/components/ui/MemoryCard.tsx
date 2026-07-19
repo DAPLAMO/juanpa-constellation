@@ -23,7 +23,7 @@ export function MemoryCard() {
   }
 
   return (
-    <div className="absolute inset-0 overflow-y-auto px-6 anim-card">
+    <div className="absolute inset-0 overflow-y-auto px-4 sm:px-6 anim-card">
       {/* Velo oscuro */}
       <div
         className="fixed inset-0 anim-card-veil"
@@ -32,7 +32,7 @@ export function MemoryCard() {
 
       {/* Carta — min-h-full + flex para centrar cuando el texto es corto */}
       <div className="relative z-10 min-h-full flex items-center justify-center">
-      <div className="max-w-lg w-full py-16">
+      <div className="max-w-lg w-full py-10 sm:py-16">
         <div className="anim-card-line h-px bg-cosmos-glow/30 mb-10" />
 
         <p className="anim-card-sub font-cinzel text-cosmos-glow text-xs tracking-[0.4em] uppercase mb-4" style={{ opacity: 0.7 }}>

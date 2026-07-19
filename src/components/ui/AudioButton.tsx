@@ -27,9 +27,10 @@ export function AudioButton() {
 
   return (
     <button
-      className="anim-audio fixed bottom-8 right-8 z-50
-                 font-cinzel text-cosmos-text/30 text-[10px] tracking-[0.35em] uppercase
-                 flex items-center gap-2 hover:text-cosmos-text/60 transition-colors duration-500"
+      className="anim-audio fixed bottom-5 right-4 sm:bottom-8 sm:right-8 z-50
+                 font-cinzel text-cosmos-text/40 text-[9px] sm:text-[10px] tracking-[0.3em] sm:tracking-[0.35em] uppercase
+                 flex items-center gap-2 hover:text-cosmos-text/70 active:text-cosmos-text/70
+                 transition-colors duration-500 p-2"
       onClick={toggleAudio}
     >
       <span className="flex items-end gap-[3px] h-3">
@@ -41,7 +42,7 @@ export function AudioButton() {
           />
         ))}
       </span>
-      {audioEnabled ? 'Ambiente activo' : 'Activar ambiente'}
+      <span className="hidden sm:inline">{audioEnabled ? 'Ambiente activo' : 'Activar ambiente'}</span>
     </button>
   )
 }

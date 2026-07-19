@@ -14,10 +14,19 @@ import { STARS, getAllNodes }    from '@/data/stars'
 
 const allNodes = getAllNodes()
 
+function getInitialZ(): number {
+  if (typeof window === 'undefined') return 22
+  const aspect = window.innerWidth / window.innerHeight
+  if (aspect < 0.6)  return 34
+  if (aspect < 0.85) return 27
+  if (aspect < 1.0)  return 24
+  return 22
+}
+
 export default function ConstellationScene() {
   return (
     <Canvas
-      camera={{ fov: 55, near: 0.1, far: 500, position: [0, 0, 22] }}
+      camera={{ fov: 55, near: 0.1, far: 500, position: [0, 0, getInitialZ()] }}
       dpr={[1, 2]}
       gl={{
         antialias: true,
