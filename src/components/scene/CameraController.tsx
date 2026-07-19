@@ -15,14 +15,26 @@ import {
 // Animatable target for camera lookAt (plain object for GSAP)
 const lookAtTarget = { x: 0, y: 0, z: 0 }
 
-// On portrait / narrow screens the constellation would be too tight.
-// Pull the camera back proportionally to keep JUANPA comfortably visible.
+// ─── Mobile helpers ───────────────────────────────────────────────────────────
+// JUANPA spans ~10.4 units wide (x=-5.2 to x=5.2).
+// On portrait phones (aspect ≈ 0.46) with FOV=55 at z=14 the horizontal view
+// is only ~9.9 units — J and A2 clip outside the frustum.
+// Fix: widen the vertical FOV to 78° on portrait AND pull the camera back.
+function getPortraitFov(): number {
+  if (typeof window === 'undefined') return 55
+  const aspect = window.innerWidth / window.innerHeight
+  if (aspect < 0.6)  return 80   // small phones portrait
+  if (aspect < 0.85) return 68   // large phones / tablet portrait
+  if (aspect < 1.0)  return 60
+  return 55
+}
+
 function getMobileZScale(): number {
   if (typeof window === 'undefined') return 1
   const aspect = window.innerWidth / window.innerHeight
   if (aspect < 0.6)  return 1.55   // phones in portrait
-  if (aspect < 0.85) return 1.25   // large phones / tablet portrait
-  if (aspect < 1.0)  return 1.1
+  if (aspect < 0.85) return 1.30   // large phones / tablet portrait
+  if (aspect < 1.0)  return 1.10
   return 1
 }
 
@@ -38,6 +50,17 @@ export function CameraController() {
     markVisited,
     allDiscovered,
   } = useExperienceStore()
+
+  // Widen FOV on portrait mobile so JUANPA fits horizontally
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const fov = getPortraitFov()
+    if (fov !== 55) {
+      ;(camera as THREE.PerspectiveCamera).fov = fov
+      camera.updateProjectionMatrix()
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   // Keep lookAt vector in sync
   useFrame(() => {

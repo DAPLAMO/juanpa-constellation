@@ -17,9 +17,9 @@ const allNodes = getAllNodes()
 function getInitialZ(): number {
   if (typeof window === 'undefined') return 22
   const aspect = window.innerWidth / window.innerHeight
-  if (aspect < 0.6)  return 34
-  if (aspect < 0.85) return 27
-  if (aspect < 1.0)  return 24
+  if (aspect < 0.6)  return 38
+  if (aspect < 0.85) return 30
+  if (aspect < 1.0)  return 25
   return 22
 }
 
