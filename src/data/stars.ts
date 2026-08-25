@@ -259,6 +259,45 @@ No eres la persona que empezó este camino.
 Has crecido mucho más de lo que alcanzas a ver.`,
       },
       {
+        trigger: 'Cuando sea tu cumpleaños',
+        text: `Juanpa:
+
+Hoy cumples un año más 🎂 y quería dejarte unas palabras que pudieras guardar, porque hay personas que merecen algo más que un simple "feliz cumpleaños". 🫂
+
+Te admiro mucho, hermano. ❤️ Admiro tu forma de expresarte, tu manera de escuchar, tu espiritualidad 🙏 y esa capacidad tan tuya de conversar sobre cualquier cosa y terminar haciendo que uno vea el mundo de una manera diferente. 🌎
+
+Pero sobre todo, admiro tu corazón. ❤️‍🩹
+
+Este último tiempo me ha hecho admirarte todavía más. Te fuiste a estudiar Derecho ⚖️ para construir tu futuro y, en medio de todo lo que ocurrió con el terremoto, terminaste ayudando a otros, repartiendo mercados y estando presente donde muchas personas necesitaban una mano. 🤝 Eso dice muchísimo de quién eres.
+
+Y espero que nunca olvides que tienes muchísimo para dar. ✨
+
+Creo que Dios te dio un corazón especialmente hecho para acompañar, escuchar y sanar. 🙏❤️ Quizá todavía no sepamos hasta dónde puede llegar eso, pero yo sí tengo claro que vas a dejar huella en muchas personas. 🌱
+
+También espero verte cumplir todo eso que llevas dentro: ser un gran abogado ⚖️, construir tu independencia 💰, tener una vida estable 🏡 y, algún día, ser ese padre del que tus hijos puedan sentirse profundamente orgullosos. 👨‍👧‍👦❤️
+
+Y cuando llegue el momento de construir todo eso, espero seguir estando por ahí, jodiéndote la vida 😂, riéndome de tus frases de viejita 👵🏻 y recordándote que una vez te mandé primero al castillo del terror mientras yo rezaba en latín. JAJAJAJA. 😭😂🙏
+
+Gracias por ser mi confidente, por escuchar mis locuras a cualquier hora 🫂 y por ser ese amigo que, aunque es diferente a mí en muchas cosas, parece tener una manera extraña de coincidir conmigo en las que realmente importan. 🤝❤️
+
+A veces pienso que eres como el gemelo que nunca tuve. 🫂
+
+Y qué fortuna que Dios haya decidido cruzar nuestros caminos. 🙏✨
+
+Feliz cumpleaños, Juanpis Live Show. 🎂😂❤️
+
+Que este nuevo año te encuentre con más fuerza 💪, más sabiduría 🧠, más amor ❤️ y mucha más berraquera. 🔥
+
+Y que nunca se te olvide algo:
+Tienes mucho que darle a este mundo. 🌎❤️
+
+Que Dios te bendiga, te acompañe y te permita convertirte en todo aquello que sueñas. 🙏✨
+
+Te quiero, hermano. ❤️🫂
+
+— David 🥂`,
+      },
+      {
         trigger: 'Cuando simplemente quieras volver',
         text: `No importa cuándo abras esta página.
 Puede ser dentro de un mes, dentro de un año, o dentro de diez.
