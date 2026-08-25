@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cosmos-bg:   #04060A;
+  --cosmos-text: #F5F0E8;
+  --cosmos-gold: #B8960C;
+  --cosmos-glow: #7EB8D4;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--cosmos-bg);
+  color: var(--cosmos-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+::selection {
+  background: rgba(126, 184, 212, 0.2);
+  color: #F5F0E8;
+}
+
+::-webkit-scrollbar { width: 2px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(126,184,212,0.2); border-radius: 2px; }
+
+/* ─── CSS Keyframes (Framer Motion replacement for reliability) ────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes scaleX {
+  from { transform: scaleX(0); opacity: 0; }
+  to   { transform: scaleX(1); opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Landing animations */
+.anim-landing        { animation: fadeIn  1.5s ease 0.4s both; }
+.anim-phrase         { animation: fadeUp  1.4s cubic-bezier(.22,1,.36,1) 1.0s both; }
+.anim-line           { animation: scaleX  1.8s ease 2.0s both; transform-origin: left; }
+.anim-enter-btn      { animation: fadeIn  1.0s ease 2.2s both; }
+
+/* Card animations */
+.anim-card           { animation: fadeIn  0.9s cubic-bezier(.22,1,.36,1) 0s both; }
+.anim-card-line      { animation: scaleX  1.2s ease 0.6s both; transform-origin: left; }
+.anim-card-sub       { animation: fadeIn  0.8s ease 0.8s both; }
+.anim-card-title     { animation: fadeUp  0.9s cubic-bezier(.22,1,.36,1) 0.9s both; }
+.anim-card-photo     { animation: fadeIn  0.8s ease 1.1s both; }
+.anim-card-text      { animation: fadeIn  0.9s ease 1.2s both; }
+.anim-card-back      { animation: fadeIn  0.8s ease 1.6s both; }
+.anim-card-veil      { animation: fadeIn  0.6s ease 0s both; }
+
+/* Capsule animations */
+.anim-capsule-item-0 { animation: slideUp 0.6s cubic-bezier(.22,1,.36,1) 1.0s both; }
+.anim-capsule-item-1 { animation: slideUp 0.6s cubic-bezier(.22,1,.36,1) 1.1s both; }
+.anim-capsule-item-2 { animation: slideUp 0.6s cubic-bezier(.22,1,.36,1) 1.2s both; }
+.anim-capsule-item-3 { animation: slideUp 0.6s cubic-bezier(.22,1,.36,1) 1.3s both; }
+.anim-capsule-item-4 { animation: slideUp 0.6s cubic-bezier(.22,1,.36,1) 1.4s both; }
+.anim-capsule-item-5 { animation: slideUp 0.6s cubic-bezier(.22,1,.36,1) 1.5s both; }
+
+/* Finale */
+.anim-finale-name    { animation: fadeIn  2.0s ease 2.5s both; }
+.anim-finale-msg     { animation: fadeIn  2.5s cubic-bezier(.22,1,.36,1) 1.5s both; }
+.anim-finale-line    { animation: scaleX  1.5s ease 2.5s both; transform-origin: center; }
+
+/* Audio button */
+.anim-audio          { animation: fadeIn  1.0s ease 0.5s both; }
+
+/* Hint */
+.anim-hint           { animation: fadeIn  1.5s ease 1.5s both; }
+
+/* Exit states — add class when removing */
+.anim-exit { animation: fadeOut 0.8s ease 0s both; }
